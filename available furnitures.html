@@ -1,0 +1,1481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+`   <script src="https://kit.fontawesome.com/ae73cebaab.js" crossorigin="anonymous"></script>
+
+    <script src="home.js"></script>
+    <link rel="stylesheet" href="home.css">
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');.product-grid{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 5px 15px 0 ;
+    border-radius: 10px;
+    box-shadow:  0 0 3px rgba(0,0,0,0.1);
+    transition: all 0.5s;
+}
+.product-grid:hover{ box-shadow:  0 0 15px rgba(0,0,0,0.1); }
+.product-grid .product-image{ position: relative; }
+.product-grid .product-image a.image{
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    display: block;
+}
+.product-grid .product-image img{
+    width: 350px;
+    height: 350px;
+}
+.product-grid .product-sale-label{
+    color: #fff;
+    background: #009de1;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 3px;
+    position: absolute;
+    left: -4px;
+    top: -2px;
+}
+.product-grid .price{
+    color: #fff;
+    background: #009de1;
+    font-size: 13px;
+    padding: 2px 6px 2px 18px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 1px 3px 3px 1px;
+    position: absolute;
+    top: 25px;
+    left: -15px;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 50%);
+}
+.product-grid  .price span{
+    font-weight: 400;
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+.product-grid .price:before{
+    content: "";
+    background: #fff;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 7px;
+}
+.product-grid .price.fixed{
+    background: #b71540;
+    top: -4px;
+}
+.product-grid .add-to-cart{
+    color: #fff;
+    background: #b71540;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    border-radius: 3px;
+    box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.1);
+    opacity: 0;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    transition: all 0.2s ease-out;
+}
+.product-grid .add-to-cart:hover{ text-shadow: 0 0 5px #000; }
+.product-grid:hover .add-to-cart{ opacity:1; }
+.product-grid .product-content{
+    background-color: #fff;
+    text-align: left;
+    padding: 15px 10px;
+    border-top: 1px solid transparent;
+    border-radius: 0 0 10px 10px;
+    transition: all 0.3s;
+}
+.product-grid:hover .product-content{ border-top-color: #dbdbdb; }
+.product-grid .title{
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0;
+}
+.product-grid .title a{
+    color: #323b45;
+    transition: all 0.4s ease-out;
+}
+.product-grid .title a:hover{ color: #b71540; }
+.product-grid .rating{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.product-grid .rating li{
+    color: #f1c40f;
+    font-size: 12px;
+    display: inline-block;
+}
+.product-grid .rating li.far{ color: #dbdbdb; }
+@media screen and (max-width:990px){
+    .product-grid{ margin: 5px 15px 30px; }
+}
+#aa{
+    overflow: hidden;
+    display:inline-block;
+}
+#check {
+    height: fit-content;
+    color: white;
+    width: 100%;  
+    background-size: cover;
+    padding-right: 120px;
+    background-position: center;
+    background-image: url(images/add.png);
+}
+#categories{
+    font-size: 19px;
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#categories:hover{
+    color: black;
+}
+label:hover{
+    color: black;
+}
+#cont{
+    background-color: #ff9900;
+    padding: 10px;
+    height: 350px;
+    overflow: hidden; 
+    text-align: left; 
+    width: fit-content; 
+    border: transparent 1px solid;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+    </style>
+
+    <title>D.F Available furnitures</title>
+  </head>
+
+  <body>
+<!-- header -->
+<header>
+    <img src="images/logo4.png" width="auto" height="100px">
+  </header>
+  <br><br><br>
+<!-- navbar -->
+  <div id="n1" class="container-fluid">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav" >
+            <li class="li1"><a id="len1" class="hoverable" href="home.html">Home</a></li>
+            <li class="li1"><a id="len2" class="hoverable" href="available furnitures.html">Available furnitures</a></li>
+            <li class="li1"><a id="len3" class="hoverable" href="shop info.html">shop info</a></li>
+            <li class="li1"><a id="len4" class="hoverable" href="compare main.html">Compare</a></li>
+            <li class="li1"><a id="len5" class="hoverable" href="contact us.html">Contact us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+<!-- hide/show -->
+<div id="check">
+    <div id="cont">
+        <div>
+        <legend style="font-family: Arial, Helvetica, sans-serif; font-size: 24px; text-align: center;">BRANDS</legend>
+        <label style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-align: center;"><input type="checkbox" name="" id="check1">American Signature</label><br>
+        <label style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-align: center;"><input type="checkbox" name="" id="check2">Ashley</label><br>
+        <label style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-align: center;"><input type="checkbox" name="" id="check3">Durian</label><br>
+        <label style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-align: center;"><input type="checkbox" name="" id="check4">Ikea</label><br>
+        <label style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-align: center;"><input type="checkbox" name="" id="check5">Kartell</label><br>
+        </div>
+    <br>
+        <div>
+        <legend style="font-family: Arial, Helvetica, sans-serif; font-size: 24px; text-align: center;">CATEGORIES</legend>
+        <a href="sofas.html" id="categories">Sofas</a><br>
+        <a href="beds.html" id="categories">Beds</a><br>
+        <a href="dining.html" id="categories">Dining Sets</a><br>
+        <a href="decors.html" id="categories">Decors</a><br>
+        <a href="rugs.html" id="categories">Rugs</a><br>
+        <a href="sectional.html" id="categories">Sectionals</a><br>
+        <a href="recliner.html" id="categories">Reclinging</a><br>
+        <a href="office.html" id="categories">Home Office</a><br>
+       </div>
+    </div>
+</div>
+<br>
+<!-- American Signature -->
+    <div id="s1">
+        <div class="container">
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand American Signature/american_beds1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_beds1.webp" style="height: 250px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1,199.99 - $1,000.99 </div>  
+                        <a href="Brand American Signature/american_beds1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_beds1.webp" style="text-decoration: none; font-weight:bolder;">Brooke Harbor Storage Bed</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand American Signature/american_beds2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_beds2.webp" style="height: 250px;margin-top: 50px;">
+                        </a>
+                        <div class="price fixed"> $599.99 </div>
+                        <a href="Brand American Signature/american_beds2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_beds2.webp" style="text-decoration: none; font-weight:bolder;">Sabrina Upholstered Bed</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand American Signature/american_decors1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_decors1.webp" style="height: 295px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $399.99 - $299.99 </div>  
+                        <a href="Brand American Signature/american_decors1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_decors1.webp" style="text-decoration: none; font-weight:bolder;">Sitting Mirror Panther</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand American Signature/american_decors2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_decors2.webp" style="height: 280px;margin-top: 50px;">
+                        </a>
+                        <div class="price fixed"> $349.99 </div>
+                        <a href="Brand American Signature/american_decors2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_decors2.webp" style="text-decoration: none; font-weight:bolder;">Ordered Chaos Framed Print</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand American Signature/american_dining1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_dining1.webp" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1,399.95 - $1,199.95 </div>  
+                        <a href="Brand American Signature/american_dining1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_dining1.webp" style="text-decoration: none; font-weight:bolder;">Artemis Counter-Height Marble Dining Table</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand American Signature/american_dining2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_dining2.webp" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <div class="price fixed"> $498.00 </div>
+                        <a href="Brand American Signature/american_dining2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_dining2.webp" style="text-decoration: none; font-weight:bolder;">Pearson Counter-Height Dining Table </a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand American Signature/american_office1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_office1.webp" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $899.97 - $799.97 </div>  
+                        <a href="Brand American Signature/american_office1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_office1.webp" style="text-decoration: none; font-weight:bolder;">Barclay Desk</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand American Signature/american_office2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_office2.webp" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <div class="price fixed"> $999.99 </div>
+                        <a href="Brand American Signature/american_office2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_office2.webp" style="text-decoration: none; font-weight:bolder;">Monroe Executive Desk</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand American Signature/american_recliner1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_recliner1.webp" style="height: 295px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $749.99 - $649.99 </div>  
+                        <a href="Brand American Signature/american_recliner1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_recliner1.webp" style="text-decoration: none; font-weight:bolder;">Mondo Dual-Power Recliner</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand American Signature/american_recliner2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_recliner2.webp" style="height: 295px;margin-top: 50px;">
+                        </a>
+                        <div class="price fixed"> $857.99  </div>
+                        <a href="Brand American Signature/american_recliner2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_recliner2.webp" style="text-decoration: none; font-weight:bolder;">Vince Dual-Power Recliner</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand American Signature/american_rugs1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_rugs1.webp" style="height: 300px;margin-top: 0px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $249.99 - $219.99 </div>  
+                        <a href="Brand American Signature/american_rugs1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_rugs1.webp" style="text-decoration: none; font-weight:bolder;">Hyacinth 5 X 7 Area Rug - Ivory</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand American Signature/american_rugs2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_rugs2.webp" style="height: 300px;margin-top: 0px;">
+                        </a>
+                        <div class="price fixed"> $199.99 </div>
+                        <a href="Brand American Signature/american_rugs2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_rugs2.webp" style="text-decoration: none; font-weight:bolder;">Hermes 5 X 8 Area Rug - Gray/Black</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand American Signature/american_sectional1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_sectional1.webp" style="height: 130px;margin-top: 150px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $2,899.96 - $2,699.96 </div>  
+                        <a href="Brand American Signature/american_sectional1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_sectional1.webp" style="text-decoration: none; font-weight:bolder;">Conroy 4-Piece Sectional</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand American Signature/american_sectional2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_sectional2.webp" style="height: 130px;margin-top: 150px;">
+                        </a>
+                        <div class="price fixed"> $1,189.98 </div>
+                        <a href="Brand American Signature/american_sectional2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_sectional2.webp" style="text-decoration: none; font-weight:bolder;">Melrose 2-Piece Small Sectional</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand American Signature/american_sofa1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_sofa1.webp" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $600.50 - $500.99 </div>  
+                        <a href="Brand American Signature/american_sofa1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_sofa1.webp" style="text-decoration: none; font-weight:bolder;">Camila Sofa</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand American Signature/american_sofa2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand American Signature/american_sofa2.webp" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <div class="price fixed"> $1,999.98  </div>
+                        <a href="Brand American Signature/american_sofa2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand American Signature/american_sofa2.webp" style="text-decoration: none; font-weight:bolder;">Milan 2-Piece Sofa</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Ashley -->
+    <div id="s2">
+        <div class="container">
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ashley/ashley_beds1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_beds1.webp" style="height: 250px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $989.99 - $889.99 </div>  
+                        <a href="Brand Ashley/ashley_beds1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_beds1.webp" style="text-decoration: none; font-weight:bolder;">Teganville Queen Panel Bed</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ashley/ashley_beds2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_beds2.webp" style="height: 270px;margin-top: 70px;">
+                        </a>
+                        <div class="price fixed"> $589.99 </div>
+                        <a href="Brand Ashley/ashley_beds2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_beds2.webp" style="text-decoration: none; font-weight:bolder;">Willenburg Queen Upholstered Sleigh Bed</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ashley/ashley_decors1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_decors1.webp" style="height: 295px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $697.99 - $597.99 </div>  
+                        <a href="Brand Ashley/ashley_decors1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_decors1.webp" style="text-decoration: none; font-weight:bolder;">Brass Folding Tray Table</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ashley/ashley_decors2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_decors2.webp" style="height: 280px;margin-top: 50px;">
+                        </a>
+                        <div class="price fixed"> $622.99 </div>
+                        <a href="Brand Ashley/ashley_decors2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_decors2.webp" style="text-decoration: none; font-weight:bolder;">Global Views Blue Maze Compote</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ashley/ashley_dining1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_dining1.webp" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $399.99- $329.99 </div>  
+                        <a href="Brand Ashley/ashley_dining1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_dining1.webp" style="text-decoration: none; font-weight:bolder;">Bridson Counter Height Dining Table </a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ashley/ashley_dining2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_dining2.webp" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <div class="price fixed"> $607.95 </div>
+                        <a href="Brand Ashley/ashley_dining2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_dining2.webp" style="text-decoration: none; font-weight:bolder;">Skempton Counter Height Dining Table </a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ashley/ashley_office1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_office1.webp" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1,064.96 - $949.99 </div>  
+                        <a href="Brand Ashley/ashley_office1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_office1.webp" style="text-decoration: none; font-weight:bolder;">Baldridge Home Office</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ashley/ashley_office2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_office2.webp" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <div class="price fixed"> $1,079.96 </div>
+                        <a href="Brand Ashley/ashley_office2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_office2.webp" style="text-decoration: none; font-weight:bolder;">Hamlyn Home Office Desk </a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ashley/ashley_recliner1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_recliner1.webp" style="height: 250px;margin-top: 90px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1,799.99 - $1,599.99 </div>  
+                        <a href="Brand Ashley/ashley_recliner1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_recliner1.webp" style="text-decoration: none; font-weight:bolder;">Backtrack Dual Power Recliner</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ashley/ashley_recliner2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_recliner2.webp" style="height: 295px;margin-top: 50px;">
+                        </a>
+                        <div class="price fixed"> $1,529.99 </div>
+                        <a href="Brand Ashley/ashley_recliner2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_recliner2.webp" style="text-decoration: none; font-weight:bolder;">Galahad Dual Power Recliner</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ashley/ashley_rugs1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_rugs1.webp" style="height: 300px;margin-top: 0px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $790.00 - $690.00 </div>  
+                        <a href="Brand Ashley/ashley_rugs1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_rugs1.webp" style="text-decoration: none; font-weight:bolder;">Home Accent Fatimah 5' x 7'6" Area Rug</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ashley/ashley_rugs2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_rugs2.webp" style="height: 300px;margin-top: 0px;">
+                        </a>
+                        <div class="price fixed"> $1,540.00</div>
+                        <a href="Brand Ashley/ashley_rugs2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_rugs2.webp" style="text-decoration: none; font-weight:bolder;">Home Outdoor Sheepskin 6'x 8'Area Rug</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ashley/ashley_sectional1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_sectional1.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $4,299.99 - $4,099.99 </div>  
+                        <a href="Brand Ashley/ashley_sectional1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_sectional1.webp" style="text-decoration: none; font-weight:bolder;">McCaskill 3-Piece Reclining Sectional</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ashley/ashley_sectional2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_sectional2.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $3,734.99 </div>
+                        <a href="Brand Ashley/ashley_sectional2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_sectional2.webp" style="text-decoration: none; font-weight:bolder;">Bardarson 5-Piece Sectional with Chaise</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ashley/ashley_sofa1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_sofa1.webp" style="height: 290px;margin-top: 45px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $349.99 - $309.99 </div>  
+                        <a href="Brand Ashley/ashley_sofa1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_sofa1.webp" style="text-decoration: none; font-weight:bolder;">Darcy Sofa</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ashley/ashley_sofa2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ashley/ashley_sofa2.webp" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <div class="price fixed"> $584.99 </div>
+                        <a href="Brand Ashley/ashley_sofa2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ashley/ashley_sofa2.webp" style="text-decoration: none; font-weight:bolder;">Enderlin Sofa</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Durian -->
+    <div id="s3">
+        <div class="container">
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Durian/Durian_beds1.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_beds1.jpg" style="height: 220px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $3,160 - $3,060 </div>  
+                        <a href="Brand Durian/Durian_beds1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_beds1.jpg" style="text-decoration: none; font-weight:bolder;">Nicholas King Bed</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Durian/Durian_beds2.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_beds2.jpg" style="height: 220px;margin-top: 100px;">
+                        </a>
+                        <div class="price fixed"> $2,510 </div>
+                        <a href="Brand Durian/Durian_beds2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_beds2.jpg" style="text-decoration: none; font-weight:bolder;">Cambert King Size Bed</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Durian/Durian_decors1.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_decors1.jpg" style="height: 295px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1,200 - $1,000 </div>  
+                        <a href="Brand Durian/Durian_decors1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_decors1.jpg" style="text-decoration: none; font-weight:bolder;">Lugo Floor Lamp</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Durian/Durian_decors2.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_decors2.jpg" style="height: 280px;margin-top: 50px;">
+                        </a>
+                        <div class="price fixed"> $1,050 </div>
+                        <a href="Brand Durian/Durian_decors2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_decors2.jpg" style="text-decoration: none; font-weight:bolder;">Ascot Decorative oil painting</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Durian/Durian_dining1.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_dining1.jpg" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $2,800 - $2,600 </div>  
+                        <a href="Brand Durian/Durian_dining1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_dining1.jpg" style="text-decoration: none; font-weight:bolder;">Susan Turntable 6 Seater Dining Set
+                            </a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Durian/Durian_dining2.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_dining2.jpg" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <div class="price fixed"> $1,800 </div>
+                        <a href="Brand Durian/Durian_dining2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_dining2.jpg" style="text-decoration: none; font-weight:bolder;">Solid Wood 4 Seater Dining Set</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Durian/Durian_office1.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_office1.jpg" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $600 - $550 </div>  
+                        <a href="Brand Durian/Durian_office1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_office1.jpg" style="text-decoration: none; font-weight:bolder;">Barkley Study Desk</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Durian/Durian_office2.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_office2.jpg" style="height: 200px;margin-top: 100px;">
+                        </a>
+                        <div class="price fixed"> $800 </div>
+                        <a href="Brand Durian/Durian_office2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_office2.jpg" style="text-decoration: none; font-weight:bolder;">Alston Study Desk</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Durian/Durian_recliner1.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_recliner1.jpg" style="height: 240px;margin-top: 90px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1,700 - $1,555.99 </div>  
+                        <a href="Brand Durian/Durian_recliner1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_recliner1.jpg" style="text-decoration: none; font-weight:bolder;">Wonder Leather Manual Recliner </a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Durian/Durian_recliner2.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_recliner2.jpg" style="height: 240px;margin-top: 100px;">
+                        </a>
+                        <div class="price fixed"> $1,500 </div>
+                        <a href="Brand Durian/Durian_recliner2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_recliner2.jpg" style="text-decoration: none; font-weight:bolder;">Milo Premium Leatherette Manual Recliner</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Durian/Durian_rugs1.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_rugs1.jpg" style="height: 300px;margin-top: 0px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $599.99 - $499.99 </div>  
+                        <a href="Brand Durian/Durian_rugs1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_rugs1.jpg" style="text-decoration: none; font-weight:bolder;">Glitz Area Rug - Dark Gray</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Durian/Durian_rugs2.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_rugs2.jpg" style="height: 300px;margin-top: 0px;">
+                        </a>
+                        <div class="price fixed"> $599.99 </div>
+                        <a href="Brand Durian/Durian_rugs2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_rugs2.jpg" style="text-decoration: none; font-weight:bolder;">Glitz Area Rug - Cream</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Durian/Durian_sectional1.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_sectional1.jpg" style="height: 180px;margin-top: 120px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $2,200 - $2,000 </div>  
+                        <a href="Brand Durian/Durian_sectional1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_sectional1.jpg" style="text-decoration: none; font-weight:bolder;">Lucas Premium Leatherette, L Shape</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Durian/Durian_sectional2.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_sectional2.jpg" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $2,500 </div>
+                        <a href="Brand Durian/Durian_sectional2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_sectional2.jpg" style="text-decoration: none; font-weight:bolder;">Omega L-Shape Leather Sofa</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Durian/Durian_sofas1.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_sofas1.jpg" style="height: 180px;margin-top: 120px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1,200 - $1,000 </div>  
+                        <a href="Brand Durian/Durian_sofas1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_sofas1.jpg" style="text-decoration: none; font-weight:bolder;">Radiance Leather Sofa, 2 Seater</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Durian/Durian_sofas2.jpg" target="black" class="image">
+                            <img class="pic-1" src="Brand Durian/Durian_sofas2.jpg" style="height: 180px;margin-top: 120px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $2,700  - $2,300  </div>  
+                        <a href="Brand Durian/Durian_sofas2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Durian/Durian_sofas2.jpg" style="text-decoration: none; font-weight:bolder;">Omega Leather Sofa, 3 Seater</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Ikea -->
+    <div id="s4">
+        <div class="container">
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ikea/ikea_beds1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_beds1.webp" style="height: 280px;margin-top: 45px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1200 - $1000 </div>  
+                        <a href="Brand Ikea/ikea_beds1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_beds1.webp" style="text-decoration: none; font-weight:bolder;">TUFJORD Upholstered bed</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ikea/ikea_beds2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_beds2.webp" style="height: 280px;margin-top: 45px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1100 - $1000 </div>  
+                        <a href="Brand Ikea/ikea_beds2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_beds2.webp" style="text-decoration: none; font-weight:bolder;">IDANÄS Bed frame, dark brown</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ikea/ikea_decors1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_decors1.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $700 </div>
+                        <a href="Brand Ikea/ikea_decors1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_decors1.webp" style="text-decoration: none; font-weight:bolder;">RISÖR Room divider</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ikea/ikea_decors2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_decors2.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $400 </div>
+                        <a href="Brand Ikea/ikea_decors2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_decors2.webp" style="text-decoration: none; font-weight:bolder;">VARBY Corner shelf unit</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ikea/ikea_dining1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_dining1.webp" style="height: 290px;margin-top: 45px;">
+                        </a>
+                        <div class="price fixed"> $1,400 </div>
+                        <a href="Brand Ikea/ikea_dining1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_dining1.webp" style="text-decoration: none; font-weight:bolder;">SKOGSTA Table and 4 chairs</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ikea/ikea_dining2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_dining2.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $999 </div>
+                        <a href="Brand Ikea/ikea_dining2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_dining2.webp" style="text-decoration: none; font-weight:bolder;">JOKKMOKK Table and 4 chairs</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ikea/ikea_office1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_office1.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $1400 </div>
+                        <a href="Brand Ikea/ikea_office1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_office1.webp" style="text-decoration: none; font-weight:bolder;">IDÅSEN Drawer unit with smart lock</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Ikea/ikea_office2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_office2.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $700 </div>
+                        <a href="Brand Ikea/ikea_office2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_office2.webp" style="text-decoration: none; font-weight:bolder;">FJÄLLBERGET Conference chair</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ikea/ikea_recliner1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_recliner1.webp" style="height: 280px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1300 - $1100 </div>  
+                        <a href="Brand Ikea/ikea_recliner1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_recliner1.webp" style="text-decoration: none; font-weight:bolder;">GISTAD Recliner, dark red</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ikea/ikea_recliner2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_recliner2.webp" style="height: 280px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1300 - $1200 </div>  
+                        <a href="Brand Ikea/ikea_recliner2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_recliner2.webp" style="text-decoration: none; font-weight:bolder;">EKOLSUND Recliner, dark grey</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ikea/ikea_rugs1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_rugs1.webp" style="height: 280px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $650 - $550 </div>  
+                        <a href="Brand Ikea/ikea_rugs1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_rugs1.webp" style="text-decoration: none; font-weight:bolder;">VEDBÄK Rug, low pile</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ikea/ikea_rugs2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_rugs2.webp" style="height: 280px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $750 - $650 </div>  
+                        <a href="Brand Ikea/ikea_rugs2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_rugs2.webp" style="text-decoration: none; font-weight:bolder;">LUMSÅS Rug, low pile</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ikea/ikea_sectional1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_sectional1.webp" style="height: 300px;margin-top: 45px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1800 - $1600 </div>  
+                        <a href="Brand Ikea/ikea_sectional1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_sectional1.webp" style="text-decoration: none; font-weight:bolder;">SÖDERHAMN Sectional</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ikea/ikea_sectional2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_sectional2.webp" style="height: 280px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1700 - $1600 </div>  
+                        <a href="Brand Ikea/ikea_sectional2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_sectional2.webp" style="text-decoration: none; font-weight:bolder;">GRÖNLID Corner sofa-bed</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ikea/ikea_sofas1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_sofas1.webp" style="height: 300px;margin-top: 45px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $900 - $900 </div>  
+                        <a href="Brand Ikea/ikea_sofas1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_sofas1.webp" style="text-decoration: none; font-weight:bolder;">GAMMALBYN 3-seat sofa</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Ikea/ikea_sofas2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Ikea/ikea_sofas2.webp" style="height: 300px;margin-top: 45px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1900 - $1700 </div>  
+                        <a href="Brand Ikea/ikea_sofas2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Ikea/ikea_sofas2.webp" style="text-decoration: none; font-weight:bolder;">KIVIK3-seat sofa, gray </a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- kartell -->
+    <div id="s5"> 
+        <div class="container">
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Kartell/kartell_beds1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_beds1.webp" style="height: 280px;margin-top: 45px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1300 - $1200 </div>  
+                        <a href="Brand Kartell/kartell_beds1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_beds1.webp" style="text-decoration: none; font-weight:bolder;">Anson California King Bed</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Kartell/kartell_beds2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_beds2.webp" style="height: 280px;margin-top: 45px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1270 - $1170 </div>  
+                        <a href="Brand Kartell/kartell_beds2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_beds2.webp" style="text-decoration: none; font-weight:bolder;">Weatherford King Heather Bed</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Kartell/kartell_decors1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_decors1.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $1200 </div>
+                        <a href="Brand Kartell/kartell_decors1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_decors1.webp" style="text-decoration: none; font-weight:bolder;">KABUKI</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Kartell/kartell_decors2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_decors2.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $488 </div>
+                        <a href="Brand Kartell/kartell_decors2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_decors2.webp" style="text-decoration: none; font-weight:bolder;">SHANGHAI</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Kartell/kartell_dining1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_dining1.webp" style="height: 270px;margin-top: 70px;">
+                        </a>
+                        <div class="price fixed"> $1,149.95 </div>
+                        <a href="Brand Kartell/kartell_dining1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_dining1.webp" style="text-decoration: none; font-weight:bolder;">Kenton 5-pc. Dining Set</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Kartell/kartell_dining2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_dining2.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $799.95 </div>
+                        <a href="Brand Kartell/kartell_dining2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_dining2.webp" style="text-decoration: none; font-weight:bolder;">Pryce 5-pc. Dining Set</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Kartell/kartell_office1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_office1.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $1800 </div>
+                        <a href="Brand Kartell/kartell_office1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_office1.webp" style="text-decoration: none; font-weight:bolder;">Verona L-Desk with Return</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                        <a href="Brand Kartell/kartell_office2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_office2.webp" style="height: 270px;margin-top: 75px;">
+                        </a>
+                        <div class="price fixed"> $1500 </div>
+                        <a href="Brand Kartell/kartell_office2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_office2.webp" style="text-decoration: none; font-weight:bolder;">Kasari Executive Desk</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Kartell/kartell_recliner1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_recliner1.webp" style="height: 220px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1600 - $1400 </div>  
+                        <a href="Brand Kartell/kartell_recliner1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_recliner1.webp" style="text-decoration: none; font-weight:bolder;">Alec Power-Lift Recliner </a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Kartell/kartell_recliner2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_recliner2.webp" style="height: 220px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1699 - $1599 </div>  
+                        <a href="Brand Kartell/kartell_recliner2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_recliner2.webp" style="text-decoration: none; font-weight:bolder;">Lancer Rocker Recliner</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Kartell/kartell_rugs1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_rugs1.webp" style="height: 280px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1100 - $1000 </div>  
+                        <a href="Brand Kartell/kartell_rugs1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_rugs1.webp" style="text-decoration: none; font-weight:bolder;">KARTELL-ASD CARPET</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Kartell/kartell_rugs2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_rugs2.webp" style="height: 280px;margin-top: 50px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1200 - $1100 </div>  
+                        <a href="Brand Kartell/kartell_rugs2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_rugs2.webp" style="text-decoration: none; font-weight:bolder;">KARTELL-ASN CARPET</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Kartell/kartell_sectional1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_sectional1.webp" style="height: 180px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $2100 - $2000 </div>  
+                        <a href="Brand Kartell/kartell_sectional1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_sectional1.webp" style="text-decoration: none; font-weight:bolder;">Daine 3-pc. Sectional Sofa</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Kartell/kartell_sectional2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_sectional2.webp" style="height: 180px;margin-top: 100px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $2180 - $2000 </div>  
+                        <a href="Brand Kartell/kartell_sectional2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_sectional2.webp" style="text-decoration: none; font-weight:bolder;">Bandero Chenille Sectional Sofa</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Kartell/kartell_sofas1.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_sofas1.webp" style="width:76%;height: 60%;margin-top: 5px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1100.99 - $1000.99 </div>  
+                        <a href="Brand Kartell/kartell_sofas1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_sofas1.webp" style="text-decoration: none; font-weight:bolder;">LARGO 3-seater Sofa</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="aa" class="col-md-3 col-sm-6">
+                <div class="product-grid" style="width: fit-content;">
+                    <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                        <a href="Brand Kartell/kartell_sofas2.webp" target="black" class="image">
+                            <img class="pic-1" src="Brand Kartell/kartell_sofas2.webp" style=" width: 76%;height: 60%;margin-top: 5px;">
+                        </a>
+                        <span class="product-sale-label">sale!</span>
+                        <div class="price"> $1200.00 - $1100.00 </div>  
+                        <a href="Brand Kartell/kartell_sofas2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a target="black"  href="Brand Kartell/kartell_sofas2.webp" style="text-decoration: none; font-weight:bolder;">LARGO Ottoman</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+<!-- footer -->
+<footer class="f1">
+    <div class="fd2">
+      <img src="images/f1.png" width="100.05%">
+      <h3 class="h33">
+        © Durable Furnitures  1999 - 2021
+      </h3>
+    </div>
+  </footer>
+
+<!-- script for hide/show -->
+<script>
+        $(document).ready(function(){
+            var r;
+            $('input[type="checkbox"]').click(function(){
+                if($('#check1').is(':checked'))
+                {
+                    $('#s1').show();
+                }
+                else
+                {
+                    $('#s1').hide();
+                }
+            });
+
+            $('input[type="checkbox"]').click(function(){
+                if($('#check2').is(':checked'))
+                {
+                    $('#s2').show();
+                }
+                else
+                {
+                    $('#s2').hide();
+                }
+            });
+
+            $('input[type="checkbox"]').click(function(){
+                if($('#check3').is(':checked'))
+                {
+                    $('#s3').show();
+                }
+                else
+                {
+                    $('#s3').hide();
+                }
+            });
+
+            $('input[type="checkbox"]').click(function(){
+                if($('#check4').is(':checked'))
+                {
+                    $('#s4').show();
+                }
+                else
+                {
+                    $('#s4').hide();
+                }
+            });
+
+            $('input[type="checkbox"]').click(function(){
+                if($('#check5').is(':checked'))
+                {
+                    $('#s5').show();
+                }
+                else
+                {
+                    $('#s5').hide();
+                }
+            });
+        });
+</script>
+    
+  </body>
+</html>

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+`   <script src="https://kit.fontawesome.com/ae73cebaab.js" crossorigin="anonymous"></script>
+
+    <script src="home.js"></script>
+    <link rel="stylesheet" href="home.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');.product-grid{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 5px 15px 0 ;
+    border-radius: 10px;
+    box-shadow:  0 0 3px rgba(0,0,0,0.1);
+    transition: all 0.5s;
+}
+.product-grid:hover{ box-shadow:  0 0 15px rgba(0,0,0,0.1); }
+.product-grid .product-image{ position: relative; }
+.product-grid .product-image a.image{
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    display: block;
+}
+.product-grid .product-image img{
+    width: 350px;
+    height: 350px;
+}
+.product-grid .product-sale-label{
+    color: #fff;
+    background: #009de1;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 3px;
+    position: absolute;
+    left: -4px;
+    top: -2px;
+}
+.product-grid .price{
+    color: #fff;
+    background: #009de1;
+    font-size: 13px;
+    padding: 2px 6px 2px 18px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 1px 3px 3px 1px;
+    position: absolute;
+    top: 25px;
+    left: -15px;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 50%);
+}
+.product-grid  .price span{
+    font-weight: 400;
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+.product-grid .price:before{
+    content: "";
+    background: #fff;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 7px;
+}
+.product-grid .price.fixed{
+    background: #b71540;
+    top: -4px;
+}
+.product-grid .add-to-cart{
+    color: #fff;
+    background: #b71540;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    border-radius: 3px;
+    box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.1);
+    opacity: 0;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    transition: all 0.2s ease-out;
+}
+.product-grid .add-to-cart:hover{ text-shadow: 0 0 5px #000; }
+.product-grid:hover .add-to-cart{ opacity:1; }
+.product-grid .product-content{
+    background-color: #fff;
+    text-align: left;
+    padding: 15px 10px;
+    border-top: 1px solid transparent;
+    border-radius: 0 0 10px 10px;
+    transition: all 0.3s;
+}
+.product-grid:hover .product-content{ border-top-color: #dbdbdb; }
+.product-grid .title{
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0;
+}
+.product-grid .title a{
+    color: #323b45;
+    transition: all 0.4s ease-out;
+}
+.product-grid .title a:hover{ color: #b71540; }
+.product-grid .rating{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.product-grid .rating li{
+    color: #f1c40f;
+    font-size: 12px;
+    display: inline-block;
+}
+.product-grid .rating li.far{ color: #dbdbdb; }
+@media screen and (max-width:990px){
+    .product-grid{ margin: 5px 15px 30px; }
+}
+#aa{
+    overflow: hidden;
+    display:inline-block;
+}
+#check{
+    height: fit-content;
+    color: white;
+    width: 100%;    
+    background-size: cover;
+    background-position: center;
+    background-image: url(images/add.png);
+}
+#categories{
+    font-size: 19px;
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#categories:hover{
+    color: black;
+}
+label:hover{
+    color: black;
+}
+#cont{
+    background-color: #ff9900;
+    padding: 10px;
+    height: 350px;
+    overflow: hidden; 
+    text-align: left; 
+    width: fit-content; 
+    border: transparent 1px solid;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+    </style>
+
+    <title>D.F Category Sectionals</title>
+  </head>
+
+  <body>
+
+<!-- header -->
+<header>
+    <img src="images/logo4.png" width="auto" height="100px">
+  </header>
+  <br><br><br>
+<!-- navbar -->
+  <div id="n1" class="container-fluid">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav" >
+            <li class="li1"><a id="len1" class="hoverable" href="home.html">Home</a></li>
+            <li class="li1"><a id="len2" class="hoverable" href="available furnitures.html">Available furnitures</a></li>
+            <li class="li1"><a id="len3" class="hoverable" href="shop info.html">shop info</a></li>
+            <li class="li1"><a id="len4" class="hoverable" href="compare main.html">Compare</a></li>
+            <li class="li1"><a id="len5" class="hoverable" href="contact us.html">Contact us</a></li>
+        </ul>
+      </div>
+      </a>
+    </nav>
+  </div>
+<!-- hide/show -->
+<div id="check">
+    <div id="cont">
+        <div>
+        <legend style="font-family: Arial, Helvetica, sans-serif; font-size: 24px; text-align: center;">BRANDS</legend>
+        <a href="available furnitures.html" style="color: white; text-decoration: none;">
+            <label style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-align: center;">American Signature</label><br>
+            <label style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-align: center;">Ashley</label><br>
+            <label style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-align: center;">Durian</label><br>
+            <label style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-align: center;">Ikea</label><br>
+            <label style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-align: center;">Kartell</label><br>
+        </a>
+        </div>
+    <br>
+        <div>
+        <legend style="font-family: Arial, Helvetica, sans-serif; font-size: 24px; text-align: center;">CATEGORIES</legend>
+        <a href="sofas.html" id="categories">Sofas</a><br>
+        <a href="beds.html" id="categories">Beds</a><br>
+        <a href="dining.html" id="categories">Dining Sets</a><br>
+        <a href="decors.html" id="categories">Decors</a><br>
+        <a href="rugs.html" id="categories">Rugs</a><br>
+        <a href="#" id="categories">Sectionals</a><br>
+        <a href="recliner.html" id="categories">Reclinging</a><br>
+        <a href="office.html" id="categories">Home Office</a><br>
+       </div>
+    </div>
+</div>
+<br>
+
+<h1 style="font-family: Arial, Helvetica, sans-serif;text-align:left; margin-left: 50px;">SECTIONALS</h1><hr>
+<div class="container">
+    <div id="aa" class="col-md-3 col-sm-6">
+        <div class="product-grid" style="width: fit-content;">
+            <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                <a href="Brand American Signature/american_sectional1.webp" target="black" class="image">
+                    <img class="pic-1" src="Brand American Signature/american_sectional1.webp" style="height: 130px;margin-top: 150px;">
+                </a>
+                <span class="product-sale-label">sale!</span>
+                <div class="price"> $2,899.96 - $2,699.96 </div>  
+                <a href="Brand American Signature/american_sectional1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a target="black"  href="Brand American Signature/american_sectional1.webp" style="text-decoration: none; font-weight:bolder;">Conroy 4-Piece Sectional</a></h3>
+            </div>
+        </div>
+    </div>
+    <div id="aa" class="col-md-3 col-sm-6">
+        <div class="product-grid" style="width: fit-content;">
+            <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                <a href="Brand American Signature/american_sectional2.webp" target="black" class="image">
+                    <img class="pic-1" src="Brand American Signature/american_sectional2.webp" style="height: 130px;margin-top: 150px;">
+                </a>
+                <div class="price fixed"> $1,189.98 </div>
+                <a href="Brand American Signature/american_sectional2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a target="black"  href="Brand American Signature/american_sectional2.webp" style="text-decoration: none; font-weight:bolder;">Melrose 2-Piece Small Sectional</a></h3>
+            </div>
+        </div>
+    </div>
+    <div id="aa" class="col-md-3 col-sm-6">
+        <div class="product-grid" style="width: fit-content;">
+            <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                <a href="Brand Ashley/ashley_sectional1.webp" target="black" class="image">
+                    <img class="pic-1" src="Brand Ashley/ashley_sectional1.webp" style="height: 270px;margin-top: 75px;">
+                </a>
+                <span class="product-sale-label">sale!</span>
+                <div class="price"> $4,299.99 - $4,099.99 </div>  
+                <a href="Brand Ashley/ashley_sectional1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a target="black"  href="Brand Ashley/ashley_sectional1.webp" style="text-decoration: none; font-weight:bolder;">McCaskill 3-Piece Reclining Sectional</a></h3>
+            </div>
+        </div>
+    </div>
+    <div id="aa" class="col-md-3 col-sm-6">
+        <div class="product-grid" style="width: fit-content;">
+            <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                <a href="Brand Ashley/ashley_sectional2.webp" target="black" class="image">
+                    <img class="pic-1" src="Brand Ashley/ashley_sectional2.webp" style="height: 270px;margin-top: 75px;">
+                </a>
+                <div class="price fixed"> $3,734.99 </div>
+                <a href="Brand Ashley/ashley_sectional2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a target="black"  href="Brand Ashley/ashley_sectional2.webp" style="text-decoration: none; font-weight:bolder;">Bardarson 5-Piece Sectional with Chaise</a></h3>
+            </div>
+        </div>
+    </div>
+    <div id="aa" class="col-md-3 col-sm-6">
+        <div class="product-grid" style="width: fit-content;">
+            <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                <a href="Brand Durian/Durian_sectional1.jpg" target="black" class="image">
+                    <img class="pic-1" src="Brand Durian/Durian_sectional1.jpg" style="height: 180px;margin-top: 120px;">
+                </a>
+                <span class="product-sale-label">sale!</span>
+                <div class="price"> $2,200 - $2,000 </div>  
+                <a href="Brand Durian/Durian_sectional1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a target="black"  href="Brand Durian/Durian_sectional1.jpg" style="text-decoration: none; font-weight:bolder;">Lucas Premium Leatherette, L Shape</a></h3>
+            </div>
+        </div>
+    </div>
+    <div id="aa" class="col-md-3 col-sm-6">
+        <div class="product-grid" style="width: fit-content;">
+            <div class="product-image" style="width: 350px;height: 350px; background-color: white;">
+                <a href="Brand Durian/Durian_sectional2.jpg" target="black" class="image">
+                    <img class="pic-1" src="Brand Durian/Durian_sectional2.jpg" style="height: 270px;margin-top: 75px;">
+                </a>
+                <div class="price fixed"> $2,500 </div>
+                <a href="Brand Durian/Durian_sectional2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a target="black"  href="Brand Durian/Durian_sectional2.jpg" style="text-decoration: none; font-weight:bolder;">Omega L-Shape Leather Sofa</a></h3>
+            </div>
+        </div>
+    </div>
+    <div id="aa" class="col-md-3 col-sm-6">
+        <div class="product-grid" style="width: fit-content;">
+            <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                <a href="Brand Ikea/ikea_sectional1.webp" target="black" class="image">
+                    <img class="pic-1" src="Brand Ikea/ikea_sectional1.webp" style="height: 300px;margin-top: 45px;">
+                </a>
+                <span class="product-sale-label">sale!</span>
+                <div class="price"> $1800 - $1600 </div>  
+                <a href="Brand Ikea/ikea_sectional1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a target="black"  href="Brand Ikea/ikea_sectional1.webp" style="text-decoration: none; font-weight:bolder;">SÖDERHAMN Sectional</a></h3>
+            </div>
+        </div>
+    </div>
+    <div id="aa" class="col-md-3 col-sm-6">
+        <div class="product-grid" style="width: fit-content;">
+            <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                <a href="Brand Ikea/ikea_sectional2.webp" target="black" class="image">
+                    <img class="pic-1" src="Brand Ikea/ikea_sectional2.webp" style="height: 280px;margin-top: 50px;">
+                </a>
+                <span class="product-sale-label">sale!</span>
+                <div class="price"> $1700 - $1600 </div>  
+                <a href="Brand Ikea/ikea_sectional2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a target="black"  href="Brand Ikea/ikea_sectional2.webp" style="text-decoration: none; font-weight:bolder;">GRÖNLID Corner sofa-bed</a></h3>
+            </div>
+        </div>
+    </div>
+    <div id="aa" class="col-md-3 col-sm-6">
+        <div class="product-grid" style="width: fit-content;">
+            <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                <a href="Brand Kartell/kartell_sectional1.webp" target="black" class="image">
+                    <img class="pic-1" src="Brand Kartell/kartell_sectional1.webp" style="height: 180px;margin-top: 100px;">
+                </a>
+                <span class="product-sale-label">sale!</span>
+                <div class="price"> $2100 - $2000 </div>  
+                <a href="Brand Kartell/kartell_sectional1_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a target="black"  href="Brand Kartell/kartell_sectional1.webp" style="text-decoration: none; font-weight:bolder;">Daine 3-pc. Sectional Sofa</a></h3>
+            </div>
+        </div>
+    </div>
+    <div id="aa" class="col-md-3 col-sm-6">
+        <div class="product-grid" style="width: fit-content;">
+            <div class="product-image" style="width: 350px;height: 350px; background-color: white;" >
+                <a href="Brand Kartell/kartell_sectional2.webp" target="black" class="image">
+                    <img class="pic-1" src="Brand Kartell/kartell_sectional2.webp" style="height: 180px;margin-top: 100px;">
+                </a>
+                <span class="product-sale-label">sale!</span>
+                <div class="price"> $2180 - $2000 </div>  
+                <a href="Brand Kartell/kartell_sectional2_details.docx" class="add-to-cart" style="text-decoration: none; font-weight:bolder;"><i class="fas fa-download"></i> DETAILS</a>
+            </div>
+            <div class="product-content">
+                <h3 class="title"><a target="black"  href="Brand Kartell/kartell_sectional2.webp" style="text-decoration: none; font-weight:bolder;">Bandero Chenille Sectional Sofa</a></h3>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<footer class="f1">
+    <div class="fd2">
+      <img src="images/f1.png" width="100.05%">
+      <h3 class="h33">
+        © Durable Furnitures  1999 - 2021
+      </h3>
+    </div>
+  </footer>
+</body>
+</html>

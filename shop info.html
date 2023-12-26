@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script src="home.js"></script>
+    <link rel="stylesheet" href="home.css">
+
+    <style>
+.f1{
+  margin-top: 82px;
+}
+p {
+  border-right: solid 3px #f0ede8;
+  white-space: nowrap;
+  overflow: hidden;    
+  color:black;
+  margin: 0 auto;
+}
+
+/* Animation */
+p {
+  animation: animated-text 4s steps(49,end) 1s 1 normal both,
+             animated-cursor 600ms steps(39,end) infinite;
+}
+.p1 {
+  animation: animated-text 4s steps(49,end) 3s 1 normal both,
+             animated-cursor 600ms steps(29,end) infinite;
+}
+.p2 {
+  animation: animated-text 4s steps(49,end) 7s 1 normal both,
+             animated-cursor 600ms steps(29,end) infinite;
+}
+.p3 {
+  animation: animated-text 4s steps(49,end) 10s 1 normal both,
+             animated-cursor 600ms steps(29,end) infinite;
+}
+.p4 {
+  animation: animated-text 4s steps(49,end) 14s 1 normal both,
+             animated-cursor 600ms steps(29,end) infinite;
+}
+.p5 {
+  animation: animated-text 4s steps(49,end) 18s 1 normal both,
+             animated-cursor 600ms steps(29,end) infinite;
+}
+
+/* text animation */
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 1200px;}
+}
+
+
+fieldset{
+  width:fit-content;
+}
+    </style>
+    
+    <title>D.F SHOP INFO</title>
+</head>
+<body>
+
+<!-- header -->
+<header>
+  <img src="images\logo4.png" width="auto" height="100px">
+</header>
+<br><br><br>
+
+<!-- navbar -->
+<div id="n1" class="container-fluid">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav" >
+        <li class="li1"><a id="len1" class="hoverable" href="home.html">Home</a></li>
+        <li class="li1"><a id="len2" class="hoverable" href="available furnitures.html">Available furnitures</a></li>
+        <li class="li1"><a id="len3" class="hoverable" href="#">shop info</a></li>
+        <li class="li1"><a id="len4" class="hoverable" href="compare main.html">Compare</a></li>
+        <li class="li1"><a id="len5" class="hoverable" href="contact us.html">Contact us</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<center>
+<div id="info" >
+    <br>
+    <h1 style="font-family: Arial, Helvetica, sans-serif;">SHOP INFO</h1>
+      <p style="font-family: Arial, Helvetica, sans-serif ; font-size: 24px;">They say home is where the heart is.</p>
+    <br>
+      <p class="p1" style="font-family: Arial, Helvetica, sans-serif; font-size: 24px;">Taiking this further, we say the heart is home wherein all your furniture is made to cherish.</p>
+    <br>
+      <p class="p2" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px;">DurableFurnitures.pk Best Price Best Quality Furniture</p>
+    <br>
+      <p class="p3" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px;">Durable Furnitures provided the latest modern luxury and wooden furniture at a reasonable price and best quality</p>
+    <br>
+      <p class="p4" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px;">Furniture, Bed set, Sofa Set, Dining Set, Wardrobe, Baby Cot, Baby Cribs, Kids Furniture, Home Furniture, Center Table, Bunk Beds And</p>
+      <p class="p5" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px;"> Other Home Furniture Chiniot Furniture, Sawati Furniture And Modern Furniture Make On Order. Furnish Your Home</p>  
+</div>
+</center>
+<br>
+<center>
+<div id="map">
+  <fieldset>
+    <legend style="font-family: Arial, Helvetica, sans-serif; font-size: 24px; text-align: center;">SHOP LOCATION</legend>
+    <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d904.4558365144283!2d67.04461982923613!3d24.93808721506656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDU2JzE3LjEiTiA2N8KwMDInNDIuNiJF!5e0!3m2!1sen!2s!4v1627483301970!5m2!1sen!2s width=1200&amp;height=600&amp;hl=en&amp;q=M. Iqbal Furniture&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.fridaynightfunkin.net/friday-night-funkin-mods-fnf-play-online/">FNF Mods</a></div><style>.mapouter{position:relative;text-align:right;width:1200px;height:600px;}.gmap_canvas {overflow:hidden;background:none!important;width:1200px;height:600px;}.gmap_iframe {width:1200px!important;height:600px!important;}</style></div>
+  </fieldset>
+</div>
+</center>
+<!-- footer -->
+<footer class="f1">
+  <div class="fd2">
+    <img src="images/f1.png" width="100.05%">
+    <h3 class="h33">
+      © Durable Furnitures  1999 - 2021
+    </h3>
+  </div>
+</footer>
+
+</body>
+</html>
